@@ -4,6 +4,8 @@ This was a summer internship at Tata Consultancy Services, Riyadh
 
 **Date:** 15th July to 16th August 2017
 
+#### Screenshots and more details are on the PDF file [here](Screenshots%20of%20Final%20App.pdf)
+
 ## Description: 
 Developed a social networking website using Angular 4 for UI, Spring Boot for back-end and Postgres for database storage. The website’s main features are authentication, posting, searching for profiles and chatting. The chatting module uses Web Sockets for real time data transfer between client and server side.
 
