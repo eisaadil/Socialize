@@ -1,0 +1,23 @@
+<div class="panel panel-default" style="border:none;width:80%;margin-left:auto;margin-right:auto;">
+  <div class="alert alert-danger" role="alert" *ngIf="errorCode == 1">Sorry, this chat is unavailable</div>
+  <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+  <div class="alert alert-warning" role="alert" *ngIf="loading == true"><strong>Loading...</strong></div>
+  <!--<div class="alert alert-success" role="alert" *ngIf="errorCode == 0">The chat has been successfully submitted</div>-->
+
+
+  <form class="form-inline" [formGroup]="chatForm" (submit)="chatFormSubmit()">
+
+    <div *ngIf="chatForm.controls['text'].dirty && chatForm.controls['text'].invalid">
+      <div class="alert alert-danger" role="alert" *ngIf="chatForm.controls['text'].hasError('minlength')">Chat has to
+        be at least 5 characters long
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="chatForm.controls['text'].hasError('required')">Um... You
+        didn't write anything
+      </div>
+    </div>
+    <textarea rows="3" class="form-control" id="chatText" style="min-width:100%" formControlName="text"
+              placeholder="Type your message here" (keyup.enter)="chatFormSubmit()"></textarea>
+    <!--<button chatFormbmit" class="btn btn-primary" [disabled]="!postForm.valid">Post</button>-->
+
+  </form>
+</div>

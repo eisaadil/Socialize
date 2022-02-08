@@ -1,0 +1,13 @@
+<div class="container" style="width:40%;min-width:450px">
+  <div class="alert alert-danger" role="alert" *ngIf="deleteErrorCode == 1">
+    Sorry, this post could not be <span style="color:#a94442;font-weight: 700;">deleted</span>
+  </div>
+  <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+  <div class="alert alert-warning" role="alert" *ngIf="loading == true"><strong>Loading...</strong></div>
+  <div class="alert alert-success" role="alert" *ngIf="deleteErrorCode == 0">
+    The post has been successfully <span style="color:#a94442;font-weight: 700;">deleted</span>
+  </div>
+
+  <sc-new-post (postCompleteEvent)="reloadList($event)"></sc-new-post>
+  <sc-post *ngFor="let post of postsList" [post]="post" (deleteCodeEvent)="deletePost($event)"></sc-post>
+</div>

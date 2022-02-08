@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+
+.completer-dropdown {
+  border-color: white !important;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 1.1em !important;
+  width: 200px !important;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 9999;
+  position: absolute;
+  margin-top: 2px !important;
+  background-color: #2C3E50 !important;
+}
+
+.completer-row {
+  padding: 5px !important;
+  color: #ECF0F1 !important;
+  font-weight: bolder !important;
+  margin-bottom: 4px;
+  clear: both;
+  display: inline-block;
+  width: 100% !important;
+}
+
+.completer-row:hover {
+  background-color: #ECF0F1 !important;
+  color: #2C3E50 !important;
+}
+
+.navbar-form .form-control {
+  width: 200px !important;
+}
+
+.find-people-container .completer-dropdown {
+  border-color: white !important;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 1.1em !important;
+  width: 40em !important;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 9999;
+  position: absolute;
+  margin-top: 2px !important;
+  background-color: #2C3E50 !important;
+}
+
+.find-people-container .completer-row {
+  padding: 5px !important;
+  color: #ECF0F1 !important;
+  font-weight: bolder !important;
+  margin-bottom: 4px;
+  clear: both;
+  display: inline-block;
+  width: 100% !important;
+}
+
+.find-people-container .completer-row:hover {
+  background-color: #ECF0F1 !important;
+  color: #2C3E50 !important;
+}
+
+.find-people-container .form-control {
+  width: 40em !important;
+}
+
+.btn-primary {
+  background-color: #2C3E50 !important;
+  color: #ECF0F1 !important;
+  border: none !important;
+}
+
+* {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+}
+

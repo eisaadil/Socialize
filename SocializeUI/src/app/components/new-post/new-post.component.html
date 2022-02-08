@@ -1,0 +1,23 @@
+<div class="panel panel-default" style="border:none;">
+  <div class="alert alert-danger" role="alert" *ngIf="errorCode == 1">Sorry, this post is unavailable</div>
+  <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+  <div class="alert alert-warning" role="alert" *ngIf="loading == true"><strong>Loading...</strong></div>
+  <div class="alert alert-success" role="alert" *ngIf="errorCode == 0">The post has been successfully submitted</div>
+
+
+  <form class="form-inline" [formGroup]="postForm" (submit)="postFormSubmit()">
+
+    <div *ngIf="postForm.controls['text'].dirty && postForm.controls['text'].invalid">
+      <div class="alert alert-danger" role="alert" *ngIf="postForm.controls['text'].hasError('minlength')">Post has to
+        be at least 10 characters long
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="postForm.controls['text'].hasError('required')">Um... You
+        didn't post anything
+      </div>
+    </div>
+    <textarea rows="3" class="form-control" id="postText" style="min-width:100%" formControlName="text"
+              placeholder="What's on your mind? Press enter to post" (keyup.enter)="postFormSubmit()"></textarea>
+    <!--<button chatFormbmit" class="btn btn-primary" [disabled]="!postForm.valid">Post</button>-->
+
+  </form>
+</div>

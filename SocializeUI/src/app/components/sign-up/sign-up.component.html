@@ -1,0 +1,106 @@
+<form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit($event)">
+
+  <div class="alert alert-warning" role="alert" *ngIf="errorCode == 1">The user could not be signed up</div>
+  <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">It looks like there was some error with the
+    server.
+  </div>
+
+  <div *ngIf="signUpForm.controls['username'].dirty && signUpForm.controls['username'].invalid">
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['username'].hasError('minlength')">Username
+      has to be at least 4 characters long
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['username'].hasError('required')">Username
+      is required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['username'].hasError('maxlength')">Username
+      can be at most 10 characters only
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('username').hasError('usernameInUse')">Username
+      is already taken
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="signUpForm.get('username').hasError('serverError')">It looks
+      like there was some error with the server.
+    </div>
+  </div>
+
+  <div *ngIf="signUpForm.controls['fullName'].dirty && signUpForm.controls['fullName'].invalid">
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['fullName'].hasError('minlength')">Full Name
+      has to be at least 4 characters long
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['fullName'].hasError('required')">Full Name
+      is required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['fullName'].hasError('maxlength')">Full Name
+      can be at most 15 characters only
+    </div>
+  </div>
+
+  <div *ngIf="signUpForm.controls['password'].dirty && signUpForm.controls['password'].invalid">
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['password'].hasError('minlength')">Password
+      has to be at least 5 characters long
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['password'].hasError('required')">Password
+      is required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['password'].hasError('maxlength')">Password
+      can be at most 15 characters only
+    </div>
+  </div>
+
+  <div *ngIf="signUpForm.controls['rPassword'].dirty && signUpForm.controls['rPassword'].invalid">
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['rPassword'].hasError('required')">Repeat
+      Password is required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.get('rPassword').hasError('passwordNotMatched')">Both
+      the passwords must match
+    </div>
+  </div>
+
+  <div *ngIf="signUpForm.controls['email'].dirty && signUpForm.controls['email'].invalid">
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['email'].hasError('required')">Email is
+      required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="signUpForm.controls['email'].hasError('email')">Email entered
+      must be valid
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="fullName">Full Name:</label>
+    <div class="">
+      <input type="text" class="form-control" formControlName="fullName" id="fullName"
+             placeholder="Enter your full name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="username">Username:</label>
+    <div class="">
+      <input type="text" class="form-control" formControlName="username" id="username" placeholder="Enter username">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="password">Password:</label>
+    <div class="0">
+      <input type="password" class="form-control" formControlName="password" id="password" placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="rPassword">Repeat Password:</label>
+    <div class="">
+      <input type="password" class="form-control" formControlName="rPassword" id="rPassword"
+             placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="email">Email Address:</label>
+    <div class="">
+      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email address">
+    </div>
+  </div>
+  <div class="form-group" style="text-align:center">
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!signUpForm.valid"><span
+      class="glyphicon glyphicon-refresh glyphicon-refresh-animate" *ngIf="loading"></span> Submit
+    </button>
+  </div>
+</form>

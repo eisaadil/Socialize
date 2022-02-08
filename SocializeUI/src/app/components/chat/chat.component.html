@@ -1,0 +1,8 @@
+<div class="panel-body" [ngClass]="{'currentUser':isCurrentUser, 'notCurrentUser':!isCurrentUser}">
+  <h4>
+    <strong>{{fromUser?.fullName | titlecase}}</strong>
+  </h4>
+  <h6><em>{{chat?.date*1000 | date: 'medium'}}</em></h6>
+  <p>{{chat?.text}}</p>
+  <!--{{post.id}} {{post.userId}}-->
+</div>

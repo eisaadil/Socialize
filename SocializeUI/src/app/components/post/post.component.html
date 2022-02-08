@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorCode == 1">Sorry, this post is unavailable</div>
+    <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+    <div class="alert alert-warning" role="alert" *ngIf="loading == true"><strong>Loading...</strong></div>
+    <h4>
+      <strong>{{userPost?.fullName}}</strong> - {{userPost?.email}}
+      <span class="glyphicon glyphicon-remove pull-right" style="font-size:0.4em" aria-hidden="true"
+            *ngIf="isCurrentUser" (click)="removePost(post.id)"></span>
+    </h4>
+    <h6><em>{{post?.date*1000 | date: 'medium'}}</em></h6>
+    <p>{{post?.text}}</p>
+    <!--{{post.id}} {{post.userId}}-->
+  </div>
+</div>

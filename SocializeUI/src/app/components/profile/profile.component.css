@@ -1,0 +1,8 @@
+li.active a {
+  color: #E74C3C;
+  font-weight: bolder;
+}
+
+li a {
+  font-weight: bolder;
+}

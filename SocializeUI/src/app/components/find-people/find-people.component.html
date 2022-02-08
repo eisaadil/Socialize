@@ -1,0 +1,27 @@
+<sc-header></sc-header>
+<ul class="nav nav-tabs nav-justified" *ngIf="selectedMode!=''">
+  <li role="presentation" [ngClass]="{'active':selectedMode=='profile'}"><a (click)="selectedMode='profile'">Profile</a>
+  </li>
+  <li role="presentation" [ngClass]="{'active':selectedMode=='posts'}"><a (click)="selectedMode='posts'">Posts</a></li>
+  <li role="presentation" [ngClass]="{'active':selectedMode=='chat'}"><a (click)="selectedMode='chat'">Chat</a></li>
+</ul>
+
+<div class="container" style="width:50%;margin-top: 1.7em">
+  <div *ngIf="selectedMode==''" class="find-people-container">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <div class="form-group">
+      <ng2-completer [openOnFocus]="true" [inputClass]="{'form-control':true}" [datasource]="usernameList"
+                     [minSearchLength]="0" (selected)="userSelected($event)"
+                     [placeholder]="'Find someone by their Username, Full Name, Email Address or ID'"></ng2-completer>
+    </div>
+  </div>
+  <div *ngIf="selectedUser  && selectedMode=='profile'">
+    <sc-profile-details [selectedUser]="selectedUser"></sc-profile-details>
+  </div>
+  <div *ngIf="postsList && selectedMode=='posts'">
+    <sc-post *ngFor="let post of postsList" [post]="post"></sc-post>
+  </div>
+  <div *ngIf="selectedUser && selectedMode=='chat'" style="min-width:450px">
+    <sc-display-chats [toUser]="selectedUser"></sc-display-chats>
+  </div>
+</div>

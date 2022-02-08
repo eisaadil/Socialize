@@ -1,0 +1,22 @@
+.currentUser {
+  text-align: left;
+  float: left;
+  background-color: #2980B9;
+  border-radius: 1.5em 1.5em 1.5em 0px;
+  color: #ECF0F1;
+}
+
+.notCurrentUser {
+  text-align: right;
+  float: right;
+  background-color: #E74C3C;
+  border-radius: 1.5em 1.5em 0px 1.5em;
+  color: #ECF0F1;
+}
+
+.panel-body {
+  margin: 1.5em;
+  width: 80%;
+}
+
+/* obviouslt not jpa changes */

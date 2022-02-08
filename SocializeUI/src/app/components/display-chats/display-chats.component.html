@@ -1,0 +1,12 @@
+<div class="container" style="width:100%">
+
+
+  <div class="panel panel-default scrollable" id="chat-box-scrollable"> <!-- Everything is in reverse order -->
+
+    <sc-new-chat [toUser]="toUser"></sc-new-chat>
+    <sc-chat *ngFor="let chat of chats" [chat]="chat" [fromUser]="fromUser" [toUser]="toUser"></sc-chat>
+    <div class="alert alert-danger" role="alert" *ngIf="errorCode == 1">There are no chats available</div>
+    <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+    <div class="alert alert-warning" role="alert" *ngIf="loading == true"><strong>Loading...</strong></div>
+  </div>
+</div>

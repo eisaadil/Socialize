@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-body" style="width:80%;margin-left:auto;margin-right:auto;text-align:center">
+    <div class="alert alert-danger" role="alert" *ngIf="errorCode == 1">Sorry, your account could not be deactivated
+    </div>
+    <div class="alert alert-warning" role="alert" *ngIf="errorCode == 2">Looks like there was a server error</div>
+    <h3>Deactivating your account will make you permanently lose your information.</h3>
+    <button class="btn btn-lg btn-danger" (click)="deactivateAccount()">Deactivate Account</button>
+  </div>
+</div>
